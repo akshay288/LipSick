@@ -1,0 +1,5 @@
+__pycache__
+models/shape_predictor_68_face_landmarks.dat
+asserts/inference_result
+asserts/output_graph.pb
+asserts/pretrained_lipsick.pth

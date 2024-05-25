@@ -2,10 +2,11 @@ name: lipsick
 channels:
   - pytorch
   - nvidia
-  - conda-forge
   - defaults
+  - conda-forge
 dependencies:
   - python=3.10
+  - pip=23.3.1
   - pytorch==1.13.0
   - torchvision==0.14.0
   - torchaudio==0.13.0
@@ -24,4 +25,4 @@ dependencies:
     - tensorflow==2.10.0
     - tensorflow-gpu==2.10.0
     - tensorflow-intel==2.10.0
-    - ./wheels/dlib-19.22.99-cp310-cp310-win_amd64.whl
+    - ./wheels/dlib-19.24.99-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl

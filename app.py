@@ -25,6 +25,13 @@ def compute_crop_radius_stats(video_file):
     return most_common
 
 def process_files(source_video, driving_audio, custom_crop_radius=None, auto_mask=True, ref_index_1=None, ref_index_2=None, ref_index_3=None, ref_index_4=None, ref_index_5=None, activate_custom_frames=False):
+    print("--------")
+    print("--------")
+    print("--------")
+    print(source_video, driving_audio, custom_crop_radius, auto_mask, ref_index_1, ref_index_2, ref_index_3, ref_index_4, ref_index_5, activate_custom_frames)
+    print("--------")
+    print("--------")
+    print("--------")
     ref_indices = [index for index in [ref_index_1, ref_index_2, ref_index_3, ref_index_4, ref_index_5] if index is not None]
     if custom_crop_radius is None or custom_crop_radius == 0:
         ref_indices = [index + 5 for index in ref_indices]
@@ -44,7 +51,7 @@ def process_files(source_video, driving_audio, custom_crop_radius=None, auto_mas
     output_video_path = get_versioned_filename(output_video_path)
 
     cmd = [
-        'python', 'inference.py',
+        'python3', 'inference.py',
         '--source_video_path', source_video,
         '--driving_audio_path', driving_audio,
         '--pretrained_lipsick_path', pretrained_model_path,
@@ -135,4 +142,4 @@ with gr.Blocks(css=".input_number { width: 80px; }") as iface:
             inputs=[source_video, driving_audio, custom_crop_radius, auto_mask, ref_index_1, ref_index_2, ref_index_3, ref_index_4, ref_index_5, activate_custom_frames],
             outputs=[status_text, output_video]
         )
-    iface.launch(inbrowser=True)
+    iface.launch(inbrowser=True, server_name="0.0.0.0")

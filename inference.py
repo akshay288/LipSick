@@ -10,7 +10,6 @@ from collections import OrderedDict
 import dlib
 import shutil
 import warnings
-import tensorflow as tf
 
 warnings.filterwarnings("ignore", category=UserWarning, message="Default grid_sample and affine_grid behavior has changed*")
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
@@ -234,9 +233,11 @@ if __name__ == '__main__':
         pre_blend_video_path = os.path.join(opt.res_video_dir, 'pre_blend.mp4')
 
         # Call blend.py for blending and masking
+        print("calling")
         cmd = [
-            'python', 'utils/blend.py',
+            'python3', 'utils/blend.py',
             '--samelength_video_path', samelength_video_path,
             '--pre_blend_video_path', pre_blend_video_path
         ]
-        subprocess.call(cmd, shell=True)
+        print(cmd)
+        subprocess.run(cmd)
